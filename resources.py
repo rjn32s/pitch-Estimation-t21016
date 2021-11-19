@@ -13,10 +13,9 @@ from math import log2, pow
 #%%
 # Enframe Function
 def enframe(data , winsize , hoplen ,fs, wintype):
-  final_outcome = []
-  filenames = []
-  winsize = int(winsize* fs /1000)
-  hoplen = int(hoplen* fs / 1000)
+  final_outcome = [] # For Storing the output
+  winsize = int(winsize* fs /1000) # Converting the ms to indexs
+  hoplen = int(hoplen* fs / 1000) 
   for k in range(int(len(data)/hoplen)+2):
     try:
       zr = np.zeros(data.shape)
@@ -27,7 +26,7 @@ def enframe(data , winsize , hoplen ,fs, wintype):
       if wintype == 'hamm':
         zr[hoplen*k:k*hoplen+winsize] = np.hamming(winsize)
         result = zr * data
-    except:
+    except: # Handling Error due to index overflow
       result = zr
     result = result[result !=0]
     final_outcome.append(result)
