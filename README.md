@@ -11,6 +11,7 @@ Run the following command
 ### To Estimate Pitch 
 use:
 ```` 
+$ git clone https://github.com/libgit2/libgit2
 from resources import *
 pitchEstimate(r"Your .wav File addresss Here " , winSize = 30 , hopLEN = 15 ,winType = 'rect')
 
