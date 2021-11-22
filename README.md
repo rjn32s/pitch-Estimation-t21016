@@ -12,7 +12,7 @@ Run the following command
 use:
 ```` 
 from resources import *
-pitchEstimate(r"Your .wav File addresss Here " , winSize = 30 , hopLEN = 15 ,winType = 'hamm')
+pitchEstimate(r"Your .wav File addresss Here " , winSize = 30 , hopLEN = 15 ,winType = 'rect')
 
 ````
   
