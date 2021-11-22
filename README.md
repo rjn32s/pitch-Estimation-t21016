@@ -1,12 +1,6 @@
 # Pitch Estimation
-This project will help user to estimate the pitch of a give sound file(.wav) . 
-  <br />To use this Follow the Instructions:
-  <br />Clone this repository
-  <br />Open Spyder IDE
-  <br />Import the resources.py and pitchEstime.py file into working enviourment 
-Run the following command
-- python resources.py
-- python pitchEstimate.py
+The fundamental frequency of a spoken signal is called pitch.More suitable definition of pitch is "Pitch is a perceptual property of sounds that allows their ordering on a frequency-related scale, or more commonly, pitch is the quality that makes it possible to judge sounds as {higher} and {lower} in the sense associated with musical melodies Pitch is a major auditory attribute of musical tones, along with duration, loudness, and timbre." .
+The goal of this project is to use the auto-correlation function to identify the pitch of spoken discrete speech. An discrete wave is divided into several overlapping frames by the method, which then performs auto-correlation on each frame. The pitch estimation is derived from them. We first divide the audio signal into voiced and unvoiced samples based on its energy content, and then apply our algorithm to it.
 
 ### To Estimate Pitch 
 use:
