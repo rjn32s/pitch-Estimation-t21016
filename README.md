@@ -11,12 +11,15 @@ pitchEstimate(r"Your .wav File addresss Here " , winSize = 30 , hopLEN = 15 ,win
 
 ````
   
-<br />By Default it will take window size as 30ms  , Hoplength as 15ms  and windowtype as Hamming 
+
 
 
 ### Return Type 
 pitchEstimate will return nested list as :
 
-<br />[Estimated pitch, 'Voiced frame or not','Note ']
+<br />[Estimated pitch, 1 or 0,'Note']
+<br /> Voiced Frame => 1
+<br /> Unvoiced Frame =>0
+
 
 
