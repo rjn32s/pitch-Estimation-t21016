@@ -49,11 +49,15 @@ def frequency_detect(frame,fs):
     
     corr = rxx[len(rxx) // 2 :]
     dcorr = np.diff(corr)
+    
+    ##########################################################################################
+    # This chunk of code has been taken fron kaggel user url :https://www.kaggle.com/asparago/simple-pitch-detector
     rmin= np.where(dcorr > 0)[0]
     #print(rmin)
     if len(rmin) > 0:
         rmin1 = rmin[0]
     peak = np.argmax(corr[rmin1:]) + rmin1
+    ########################################################################################
     #rmax = corr[peak] / corr[0]
     fo = fs / peak
     return fo
@@ -87,7 +91,9 @@ def frequency_detect(frame,fs):
 
 
 
-    
+########################################################################################################################################    
+# This part has been taken from stack exchanges:
+# link : https://tinyurl.com/baxk4man
 def pitch(freq):
     
     A4 = 440
@@ -97,6 +103,7 @@ def pitch(freq):
     octave = h // 12
     n = h % 12
     return name[n] + str(octave)
+##############################################################################################################################################
 #%%
 
 
