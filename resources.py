@@ -16,12 +16,13 @@ from scipy import fftpack
 def enframe(data , winsize , hoplen ,fs, wintype):
     
     final_outcome = []
-    winsize = int(winsize* fs /1000)
+    winsize = int(winsize* fs /1000) # Convert ms to integer
     hoplen = int(hoplen* fs / 1000)
-    for k in range(int(len(data)/hoplen)+2):
-      try:
-        zr = np.zeros(data.shape)
-        
+    for k in range(int(len(data)/hoplen)+2): 
+        # To tackel the index overflow issue
+      try: 
+        zr = np.zeros(data.shape) # For storing the results
+        # Windowing of signal
         if wintype =='rect':
           zr[hoplen*k:k*hoplen+winsize] = np.ones(winsize)
           result = zr * data
@@ -36,7 +37,7 @@ def enframe(data , winsize , hoplen ,fs, wintype):
 
 
 def frequency_detect(frame,fs):
-    
+ 
     frame = frame - np.mean(frame)
     rxx= signal.correlate(frame , frame , 'full', 'auto')
     #peaks = signal.find_peaks(rxx)
