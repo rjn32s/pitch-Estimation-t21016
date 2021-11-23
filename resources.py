@@ -127,11 +127,11 @@ def pitchEstimate(address = " " , winSize = 30 , hopLEN = 15 , winType = 'hamm' 
          # if app == 'acf':
               
           peak = frequency_detect(frame, samplerate)
-          csv_out.append(round(peak,3)) #, 'Voiced Frame',pitch(peak)])
+          csv_out.append([round(peak,3),1,pitch(peak)]) #, 'Voiced Frame',pitch(peak)])
          # if app == 'freq':
           #    rmax , fo , peak = capestrum_detect(frame, samplerate)
-           #   csv_out.append([round(fo,3) , 'Voiced Frame',pitch(fo)])
+           #   csv_out.append([round(fo,3) , 'Voice Frame',pitch(fo)])
               
       else:
-          csv_out.append(0)
+          csv_out.append([0.000,0,'NA'])
     return csv_out
